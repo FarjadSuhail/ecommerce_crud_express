@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/product');
 const categoryRoutes = require('./routes/category');
+const cartRoutes = require('./routes/cart');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 app.use('/auth', authRoutes);
 app.use('/product', productRoutes);
 app.use('/category', categoryRoutes);
+app.use('/cart', cartRoutes);
 
 app.use((error, req, res, next) => {
     console.log(error);
