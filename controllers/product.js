@@ -47,8 +47,6 @@ exports.addProduct = async (req, res, next) => {
 
         // save product into the database    
         const newProduct = await product.save();
-        main()
-        .catch(e => console.log(e))
         res.status(201).json(newProduct);
     }
     catch(error) {

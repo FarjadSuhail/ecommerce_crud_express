@@ -221,7 +221,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InphenkxQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY0YjFiYzE0ZDllYWZhZjg4YThkNmY1MiIsImlhdCI6MTY4OTM3Mzc2NywiZXhwIjoxNjg5Mzc3MzY3fQ.Twt44u_yCX79xOzhTgMP8b85lKE-of8C8WVJCGTP2eg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InphenkxQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY0YjFiYzE0ZDllYWZhZjg4YThkNmY1MiIsImlhdCI6MTY5MDEwNDE2MywiZXhwIjoxNjkwMTA3NzYzfQ.59KKGq0yXZnet-xPqfAixjwO_Lb6Md77vNyeFTGpetY",
 							"type": "string"
 						}
 					]
@@ -230,7 +230,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"new product\",\r\n    \"description\": \"desc\",\r\n    \"price\": 45,\r\n    \"quantity\": 5,\r\n    \"categoryId\": \"64b1b646b082cc61ce04086f\"\r\n}",
+					"raw": "{\r\n    \"title\": \"Mens Shirt\",\r\n    \"description\": \"black mens shirt\",\r\n    \"price\": 45,\r\n    \"quantity\": 10,\r\n    \"categoryId\": \"64bb91d5ccf894cbbf148d3a\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -260,7 +260,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphY2syQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY0YjA1Y2I5YjgzMjAxODgzMGI4NTczMyIsImlhdCI6MTY4OTM2ODEwOCwiZXhwIjoxNjg5MzcxNzA4fQ.1ESpAoVsyVdYnjPeaikk7KseSLMQS0RHlNKL23N5Zsg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InphenkxQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY0YjFiYzE0ZDllYWZhZjg4YThkNmY1MiIsImlhdCI6MTY5MDAxMDcxMSwiZXhwIjoxNjkwMDE0MzExfQ.UcWSzlYevp8ulxVK_8vyPfb95ky5rHRhwpks_jW2F9c",
 							"type": "string"
 						}
 					]
@@ -269,7 +269,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"categoryName\": \"Shoes\"\r\n}",
+					"raw": "{\r\n    \"categoryName\": \"Clothes\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -286,6 +286,123 @@
 					"path": [
 						"category",
 						"add-category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InphenkxQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY0YjFiYzE0ZDllYWZhZjg4YThkNmY1MiIsImlhdCI6MTY5MDEwNDE2MywiZXhwIjoxNjkwMTA3NzYzfQ.59KKGq0yXZnet-xPqfAixjwO_Lb6Md77vNyeFTGpetY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": \"64b1bc14d9eafaf88a8d6f52\",\r\n    \"product\": [{\r\n        \"product_id\": \"64b306c9ee7150d59f319096\",\r\n        \"category_id\": \"64b30674ee7150d59f319092\",\r\n        \"quantity\": 3\r\n    }]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cart/add-cart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cart",
+						"add-cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product From Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InphenkxQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY0YjFiYzE0ZDllYWZhZjg4YThkNmY1MiIsImlhdCI6MTY5MDEwNDE2MywiZXhwIjoxNjkwMTA3NzYzfQ.59KKGq0yXZnet-xPqfAixjwO_Lb6Md77vNyeFTGpetY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cartId\": \"64bba084dba5adb4d6ef1744\",\r\n    \"userId\": \"64b1bc14d9eafaf88a8d6f52\",\r\n    \"prodCartId\": \"64bcf35b60280d8c4c34b1c4\",\r\n    \"productId\": \"64bb9217ccf894cbbf148d3e\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cart/deleteById",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cart",
+						"deleteById"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InphenkxQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY0YjFiYzE0ZDllYWZhZjg4YThkNmY1MiIsImlhdCI6MTY5MDAzOTkwOSwiZXhwIjoxNjkwMDQzNTA5fQ.arpXrdTnsnBg4_GvElRaGKUSNKm4F24QV0mV30p69r0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cartId\": \"64bba152dba5adb4d6ef1755\",\r\n    \"userId\": \"64b1bbfad9eafaf88a8d6f4f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cart/checkout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cart",
+						"checkout"
 					]
 				}
 			},

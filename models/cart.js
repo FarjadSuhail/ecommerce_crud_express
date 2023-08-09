@@ -1,25 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-    email: {
-        type: String,
+const cartSchema = new Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
-    password: {
-        type: String,
-        required: true
-    },
-    name: {
-        type: String,
-        required: true
-    },
-    roles: {
-        type: [String],
-        default: [],
-        required: false
-    },
-    orders: [{
+    product: [{
         product_id: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Product'
@@ -35,4 +23,4 @@ const userSchema = new Schema({
       }],
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Cart', cartSchema);
