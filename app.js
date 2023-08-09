@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -9,9 +10,6 @@ const categoryRoutes = require('./routes/category');
 const app = express();
 
 app.use(bodyParser.json());
-
-const MONGODB_URI =
-  'mongodb://localhost:27017/users-crud';
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -36,10 +34,10 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    MONGODB_URI, { useNewUrlParser: true }
+    process.env.MONGO_URI, { useNewUrlParser: true }
   )
   .then(result => {
-    app.listen(8080);
+    app.listen(process.env.PORT);
   })
   .catch(err => {
     console.log(err);
