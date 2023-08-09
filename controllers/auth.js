@@ -14,19 +14,27 @@ exports.signUp = (req, res, next) => {
     const email = req.body.email;
     const name = req.body.name;
     const password = req.body.password;
+    // console.log(req.body.roles)
+    const roles = req.body.roles;
+    
+    // console.log("****");
+    // console.log(roles);
+    
+    
     bcrypt.hash(password, 12)
     .then(hashedPw => {
         const user = new User({
             email: email,
             password: hashedPw,
-            name: name
+            name: name,
+            roles
         });
         return user.save();
     })
     .then(result => {
         res.status(200).json({
             message: 'User Created',
-            userId: result._id
+            userId: result._id,
         })
     })
     .catch(err => {
@@ -83,6 +91,7 @@ exports.login = (req, res, next) => {
         next(err);
     })
 }
+
 exports.updateUser = (req, res, next) => {
     const id = req.body._id;
     const errors = validationResult(req);
